@@ -1,0 +1,9 @@
+# Install torch first with CUDA for your GPU (see README), then:
+#   pip install -r requirements.txt
+ultralytics>=8.4.0
+supervision>=0.25.0
+opencv-python>=4.9.0
+numpy>=1.26
+pandas>=2.1
+pyyaml>=6.0
+pytest>=8.0

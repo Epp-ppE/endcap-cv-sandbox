@@ -1,0 +1,9 @@
+# Default settings. Copy this file and override values per experiment:
+#   load_config("configs/my_run.yaml")  -> merged on top of this file
+# Sections for later steps (ingest, detect, track, zones, metrics) are added as each step is built.
+
+paths:
+  data_dir: data          # input videos, labels (gitignored)
+  output_dir: outputs     # run results (gitignored)
+
+device: auto              # auto | cuda | cpu
