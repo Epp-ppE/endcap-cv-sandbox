@@ -7,3 +7,8 @@ paths:
   output_dir: outputs     # run results (gitignored)
 
 device: auto              # auto | cuda | cpu
+
+ingest:
+  sample_fps: 10          # frames per second to process; null = every frame
+  start_time: null        # wall-clock time of the first frame, ISO e.g. "2026-10-20T09:00:00"
+  clock_offset_s: 0.0     # added to every timestamp to correct camera clock drift vs POS
