@@ -5,6 +5,7 @@
 paths:
   data_dir: data          # input videos, labels (gitignored)
   output_dir: outputs     # run results (gitignored)
+  models_dir: models      # downloaded weights (gitignored)
 
 device: auto              # auto | cuda | cpu
 
@@ -12,3 +13,12 @@ ingest:
   sample_fps: 10          # frames per second to process; null = every frame
   start_time: null        # wall-clock time of the first frame, ISO e.g. "2026-10-20T09:00:00"
   clock_offset_s: 0.0     # added to every timestamp to correct camera clock drift vs POS
+
+detect:
+  model: yolo26s-pose.pt  # yolo26{n,s,m,l,x}-pose.pt, downloaded to models_dir on first use
+  conf: 0.25              # min person score kept (low on purpose: ByteTrack uses low-score boxes)
+  iou: 0.7                # NMS IoU (YOLO26 is NMS-free by default; used only if NMS runs)
+  imgsz: 1280             # inference size; larger helps small/far people on CCTV
+  half: true              # FP16 on GPU
+  batch: 8                # frames per inference call
+  kpt_conf: 0.5           # min keypoint confidence treated as "visible" (drawing, foot point, facing)
